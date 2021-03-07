@@ -7,6 +7,7 @@
     <groupId>lkty-yeb</groupId>
     <artifactId>yeb</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
 
 
 </project>
