@@ -11,4 +11,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 public class AdminServiceImpl extends ServiceImpl<IAdminDao, AdminEntity> implements IAdminService {
 
 
+    @Override
+    public AdminEntity saveAddUpdate(AdminEntity adminEntity) {
+        return null;
+    }
+
 }

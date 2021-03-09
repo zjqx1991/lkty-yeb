@@ -1,6 +1,6 @@
 package com.lkty.yeb.common.handler;
 
-import com.lkty.ihrm.common.result.R;
+import com.lkty.yeb.common.result.R;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

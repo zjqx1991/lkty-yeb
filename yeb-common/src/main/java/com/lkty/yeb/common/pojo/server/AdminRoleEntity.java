@@ -8,11 +8,7 @@ import java.util.Date;
 import lombok.Data;
 
 /**
- *
- *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2021-03-07 22:20:47
+ *	用户与角色 中间表
  */
 @Data
 @TableName("t_admin_role")

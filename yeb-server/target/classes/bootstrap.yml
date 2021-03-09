@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: yeb-server
+  cloud:
+    nacos:
+      config:
+        namespace: 7a439bb5-24d0-4284-b7fb-fd59271420da
+        server-addr: 123.57.102.7:8848
+        file-extension: yaml
+        extension-configs:
+          - dataId: datasource.yaml
+            group: dev_GROUP
+            refresh: true
+          - dataId: systemConfig.yaml
+            group: dev_GROUP
+            refresh: true
+          - dataId: mybatisPlus.yaml
+            group: dev_GROUP
+            refresh: true
+#          - dataId: redisConfig.yaml
+#            group: dev_GROUP
+#            refresh: true
+#          - dataId: cacheConfig.yaml
+#            group: dev_GROUP
+#            refresh: true
+#          - dataId: threadPoolCongif.yaml
+#            group: dev_GROUP
+#            refresh: true
+#          - dataId: sentinel.yaml
+#            group: dev_GROUP
+#            refresh: true
+
+      discovery:
+        server-addr: 123.57.102.7:8848
+
+
+
+
