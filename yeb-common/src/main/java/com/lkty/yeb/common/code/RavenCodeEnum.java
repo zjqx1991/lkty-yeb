@@ -13,12 +13,16 @@ public enum RavenCodeEnum {
     LOGIN_NOT(false, 444, "请登录"),
     PERMISSION_NOT(false, 443, "为授权"),
 
-    /**支付订单不存在
+    /**
      * 登录&注册
      */
+    PHONE_PASSWORD_FAIL(false, 30102, "手机号或密码错误"),
+
+
+
+
     SMS_CODE_REQUEST_TOO(false, 30100, "请求频率过高，请稍后再试！"),
     SMS_CODE_CHECK_FAIL(false, 30101, "验证码错误"),
-    PHONE_PASSWORD_FAIL(false, 30102, "手机号或密码错误"),
     REGISTER_SMS_CODE_USED_FAIL(false, 30103, "验证码已过期"),
     REGISTERED_FAIL(false, 30104, "用户已注册"),
 

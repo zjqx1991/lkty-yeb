@@ -23,9 +23,10 @@ public class JwtTokenUtil {
     /**
      * 根据用户信息生成 token
      */
-    public String generateToken(UserDetails userDetails) {
+    public String generateToken(String username) {
+//    public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        claims.put(TokenConstant.CLAIM_KEY_USERNAME, userDetails.getUsername());
+        claims.put(TokenConstant.CLAIM_KEY_USERNAME, username);
         claims.put(TokenConstant.CLAIM_KEY_CREATE_DATE, new Date());
 
         return generateToken(claims);
