@@ -10,5 +10,7 @@ public interface IAdminService extends IService<AdminEntity> {
      * 保存或更新
      */
     AdminEntity saveAddUpdate(AdminEntity adminEntity);
+
+    AdminEntity getAdminByUserName(String username);
 }
 

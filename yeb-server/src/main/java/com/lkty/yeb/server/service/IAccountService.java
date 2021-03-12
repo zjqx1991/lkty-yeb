@@ -1,6 +1,7 @@
 package com.lkty.yeb.server.service;
 
 import com.lkty.yeb.common.pojo.account.AccountEntity;
+import com.lkty.yeb.common.result.R;
 
 
 public interface IAccountService {
@@ -9,6 +10,6 @@ public interface IAccountService {
     /**
      * 登录获取token
      */
-    String login(AccountEntity accountEntity);
+    R login(String username, String password);
 }
 

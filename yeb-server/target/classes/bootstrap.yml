@@ -17,6 +17,9 @@ spring:
           - dataId: mybatisPlus.yaml
             group: dev_GROUP
             refresh: true
+          - dataId: securityConfig.yaml
+            group: dev_GROUP
+            refresh: true
 #          - dataId: redisConfig.yaml
 #            group: dev_GROUP
 #            refresh: true
