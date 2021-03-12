@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @Api(value = "用户表", description = "用户表管理，提供增、删、改、查")
-@RequestMapping("/admin")
+@RequestMapping("/api/admin")
 public interface IAdminAPI {
 
     /**

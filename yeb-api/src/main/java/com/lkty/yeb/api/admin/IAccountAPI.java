@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @Api(value = "用户登录/退出", description = "用户登录/退出")
-@RequestMapping("/account")
+@RequestMapping("/api/account")
 public interface IAccountAPI {
 
     @ApiOperation("登录")
