@@ -19,11 +19,11 @@ public enum RavenCodeEnum {
     ACCOUNT_DISENABLED(false, 30100, "账号被禁用"),
     USERNAME_INVALID(false, 30101, "用户不存在"),
     PHONE_PASSWORD_FAIL(false, 30102, "手机号或密码错误"),
+    ACCOUNT_CODE_USED_FAIL(false, 30103, "验证码已过期"),
 
 
 
 
-    REGISTER_SMS_CODE_USED_FAIL(false, 30103, "验证码已过期"),
     REGISTERED_FAIL(false, 30104, "用户已注册"),
 
     // 商品分类

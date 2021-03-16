@@ -1,7 +1,7 @@
 package com.lkty.yeb.server.service;
 
-import com.lkty.yeb.common.pojo.account.AccountEntity;
 import com.lkty.yeb.common.result.R;
+
 
 
 public interface IAccountService {

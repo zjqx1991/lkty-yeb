@@ -1,5 +1,8 @@
 package com.lkty.yeb.common.constant.server;
 
+/**
+ * Token相关的常量
+ */
 public class TokenConstant {
 
     // token 荷载 username 的 key
