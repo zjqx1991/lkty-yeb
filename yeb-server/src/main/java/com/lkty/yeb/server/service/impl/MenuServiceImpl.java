@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.lkty.yeb.common.pojo.server.AdminEntity;
 import com.lkty.yeb.common.pojo.server.MenuEntity;
 import com.lkty.yeb.server.dao.IMenuDao;
+import com.lkty.yeb.server.po.User;
 import com.lkty.yeb.server.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -22,8 +23,8 @@ public class MenuServiceImpl extends ServiceImpl<IMenuDao, MenuEntity> implement
 
     @Override
     public List<MenuEntity> getListByUid() {
-        AdminEntity admin = (AdminEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List<MenuEntity> list = this.menuDao.getListByUid(admin.getId());
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        List<MenuEntity> list = this.menuDao.getListByUid(user.getId());
         return list;
     }
 }

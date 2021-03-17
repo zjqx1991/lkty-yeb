@@ -26,4 +26,9 @@ public interface IAccountAPI {
     @ApiOperation("退出")
     @PostMapping("/logout")
     R logout();
+
+
+    @ApiOperation("获取用户信息")
+    @GetMapping("/info")
+    R getUserInfo();
 }

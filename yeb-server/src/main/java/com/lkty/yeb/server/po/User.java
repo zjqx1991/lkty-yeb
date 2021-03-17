@@ -1,10 +1,14 @@
 package com.lkty.yeb.server.po;
 
 import com.lkty.yeb.common.pojo.server.AdminEntity;
+import com.lkty.yeb.common.pojo.server.RoleEntity;
+import lombok.Data;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class User extends AdminEntity implements UserDetails {
 

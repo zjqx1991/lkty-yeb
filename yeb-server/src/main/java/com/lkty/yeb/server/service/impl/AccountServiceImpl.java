@@ -6,16 +6,18 @@ import com.lkty.yeb.common.code.RavenCodeEnum;
 import com.lkty.yeb.common.handler.RavenException;
 import com.lkty.yeb.common.pojo.account.AccountEntity;
 import com.lkty.yeb.common.pojo.server.AdminEntity;
+import com.lkty.yeb.common.pojo.server.RoleEntity;
 import com.lkty.yeb.common.result.R;
 import com.lkty.yeb.server.config.security.JWTProperties;
+import com.lkty.yeb.server.po.User;
 import com.lkty.yeb.server.service.IAccountService;
 import com.lkty.yeb.server.service.IAdminService;
+import com.lkty.yeb.server.service.IRoleService;
 import com.lkty.yeb.server.utils.JwtTokenUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -23,6 +25,7 @@ import org.springframework.stereotype.Service;
 import sun.tools.jstat.Token;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -37,6 +40,10 @@ public class AccountServiceImpl implements IAccountService {
     private JwtTokenUtil jwtTokenUtil;
     @Autowired
     private JWTProperties jwtProperties;
+    @Autowired
+    private IAdminService adminService;
+    @Autowired
+    private IRoleService roleService;
 
 
     @Override
@@ -61,4 +68,16 @@ public class AccountServiceImpl implements IAccountService {
         return R.ok().put("data", map);
     }
 
+    @Override
+    public R getUserInfo() {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        if (null == user) {
+            throw new RavenException(RavenCodeEnum.LOGIN_NOT);
+        }
+        AdminEntity admin = this.adminService.getAdminByUserName(user.getUsername());
+        admin.setPassword(null);
+        List<RoleEntity> roles = this.roleService.getRolesByUid(admin.getId());
+        admin.setRoles(roles);
+        return R.ok().put("data", admin);
+    }
 }

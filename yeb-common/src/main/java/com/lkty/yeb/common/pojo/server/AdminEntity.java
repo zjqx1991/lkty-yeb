@@ -1,8 +1,12 @@
 package com.lkty.yeb.common.pojo.server;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -48,4 +52,7 @@ public class AdminEntity implements Serializable {
 	@ApiModelProperty("备注")
 	private String remark;
 
+	@ApiModelProperty("角色列表")
+	@TableField(exist = false)
+	private List<RoleEntity> roles = new ArrayList<>();
 }

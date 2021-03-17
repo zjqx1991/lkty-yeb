@@ -82,4 +82,9 @@ public class AccountController implements IAccountAPI {
     public R logout() {
         return R.ok();
     }
+
+    @Override
+    public R getUserInfo() {
+        return this.accountService.getUserInfo();
+    }
 }

@@ -11,16 +11,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/admin")
 public interface IAdminAPI {
 
-    /**
-     * 增加或修改
-     */
     @ApiOperation("增加或修改")
     @PostMapping("/saveOrUpdate")
     R saveAddUpdate(@RequestBody AdminEntity adminEntity);
 
-    /**
-     * 根据 id 删除
-     */
     @ApiOperation("根据 id 删除")
     @PostMapping("/delete/{id}")
     R delete(@PathVariable("id") Integer id);
