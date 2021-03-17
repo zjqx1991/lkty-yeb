@@ -7,13 +7,6 @@ import java.io.Serializable;
 import java.util.Date;
 import lombok.Data;
 
-/**
- *
- *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2021-03-07 22:20:47
- */
 @Data
 @TableName("t_appraise")
 public class AppraiseEntity implements Serializable {
