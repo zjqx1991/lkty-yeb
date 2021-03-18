@@ -5,36 +5,31 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- *
- *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2021-03-07 22:20:43
- */
 @Data
 @TableName("t_position")
+@ApiModel("职位 对象")
 public class PositionEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * id
-	 */
+
+	@ApiModelProperty("自增主键id")
 	@TableId
 	private Integer id;
-	/**
-	 * 职位
-	 */
+
+	@ApiModelProperty("职位")
 	private String name;
-	/**
-	 * 创建时间
-	 */
+
+	@ApiModelProperty("创建时间")
+	@JsonFormat(pattern = "yyyy-MM-dd", timezone = "Asia/Shanghai")
 	private Date createdate;
-	/**
-	 * 是否启用
-	 */
+
+	@ApiModelProperty("是否启用")
 	private Integer enabled;
 
 }

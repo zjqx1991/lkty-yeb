@@ -1,6 +1,7 @@
 package com.lkty.yeb.server.config.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.lkty.yeb.common.code.RavenCodeEnum;
 import com.lkty.yeb.common.result.R;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDeniedException;
@@ -22,7 +23,7 @@ public class AccessDeniedHandler implements org.springframework.security.web.acc
         response.setCharacterEncoding("UTF-8");
         response.setContentType("application/json");
         PrintWriter out = response.getWriter();
-        R error = R.error(403, "权限不足，请联系管理员");
+        R error = R.error(RavenCodeEnum.FORBIDDEN.getCode(), RavenCodeEnum.FORBIDDEN.getMessage());
         out.write(new ObjectMapper().writeValueAsString(error));
         out.flush();
         out.close();

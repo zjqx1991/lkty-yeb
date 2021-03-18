@@ -7,11 +7,11 @@ import lombok.Getter;
 public enum RavenCodeEnum {
 
     SUCCESS(true, 0, "成功"),
-    TOO_MANY_REQUEST(false, 1, "请求流量过大"),
-    FAIL(false, 99999, "系统错误"),
-    PARAM_FAIL(false, 400, "参数错误"),
-    LOGIN_NOT(false, 444, "请登录"),
-    PERMISSION_NOT(false, 443, "为授权"),
+    TOO_MANY_REQUEST(false, 1000, "请求流量过大"),
+    FAIL(false, 1001, "系统错误"),
+    PARAM_FAIL(false, 1002, "参数错误"),
+    LOGIN_NOT(false, 401, "未登录"),
+    FORBIDDEN(false, 403, "权限不足，请联系管理员"),
 
     /**
      * 登录&注册
@@ -22,14 +22,14 @@ public enum RavenCodeEnum {
     ACCOUNT_CODE_USED_FAIL(false, 30103, "验证码已过期"),
 
 
-
-
     REGISTERED_FAIL(false, 30104, "用户已注册"),
 
-    // 商品分类
-    PRODUCT_CATEGORY_EXIST(false, 40100, "品牌分类名称已经存在"),
-    PRODUCT_CATEGORY_SAVE_FAIL(false, 40101, "品牌分类保存失败"),
-    PRODUCT_CATEGORY_UPDATE_FAIL(false, 40102, "品牌分类更新失败"),
+
+
+
+    // 职位
+    POSITION_SAVE_FAIL(false, 40100, "职位保存失败"),
+    POSITION_UPDATE_FAIL(false, 40101, "职位更新失败"),
 
     // 品牌
     PRODUCT_BRAND_EXIST(false, 40200, "品牌名称已经存在"),
