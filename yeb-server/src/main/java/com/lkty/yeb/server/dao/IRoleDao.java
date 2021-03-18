@@ -13,4 +13,8 @@ public interface IRoleDao extends BaseMapper<RoleEntity> {
 
     @Select("SELECT DISTINCT r.* FROM t_role r, t_admin_role ar WHERE r.id = ar.rid AND ar.adminId = #{uid}")
     List<RoleEntity> getRolesByUid(@Param("uid") Integer uid);
+
+    @Select("SELECT DISTINCT r.* FROM t_menu_role mr, t_role r WHERE mr.rid = r.id AND mr.mid = #{menuId}")
+    List<RoleEntity> getRolesByMenuId(@Param("menuId") Integer menuId);
+
 }

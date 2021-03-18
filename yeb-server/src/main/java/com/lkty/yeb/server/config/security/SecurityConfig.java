@@ -1,19 +1,18 @@
 package com.lkty.yeb.server.config.security;
 
 import com.lkty.yeb.server.service.impl.UserDetailsServiceImpl;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.annotation.ObjectPostProcessor;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 
@@ -35,6 +34,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private AuthorizationEntryPointHandler entryPointHandler;
     @Autowired
     private MatchersPathProperties matchersPathProperties;
+    @Autowired
+    private MenuRolesMetadataSource metadataSource;
+    @Autowired
+    private RoleAccessDecisionManager accessDecisionManager;
 
 
     /**
@@ -62,6 +65,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // 所有请求都需要认证
                 .anyRequest()
                 .authenticated()
+                // 动态配置权限
+                .withObjectPostProcessor(new ObjectPostProcessor<FilterSecurityInterceptor>() {
+                    @Override
+                    public <O extends FilterSecurityInterceptor> O postProcess(O object) {
+                        object.setAccessDecisionManager(accessDecisionManager);
+                        object.setSecurityMetadataSource(metadataSource);
+                        return object;
+                    }
+                })
                 .and()
                 // 禁止缓存
                 .headers()

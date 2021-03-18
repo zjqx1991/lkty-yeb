@@ -9,5 +9,11 @@ import java.util.List;
 public interface IMenuService extends IService<MenuEntity> {
 
     List<MenuEntity> getListByUid();
+
+    /**
+     * 获取 Menu - Roles 关系
+     * 获取 url 包含的 Roles
+     */
+    List<MenuEntity> getMenuWithRoles();
 }
 
