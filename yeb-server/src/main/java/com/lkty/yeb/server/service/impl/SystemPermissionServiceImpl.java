@@ -34,6 +34,22 @@ public class SystemPermissionServiceImpl implements ISystemPermissionService {
     }
 
     @Override
+    public Boolean deleteBatchByIds(List<Integer> ids) {
+        if (null == ids || ids.isEmpty()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        return this.menuService.removeByIds(ids);
+    }
+
+    @Override
+    public Boolean update(MenuEntity menuEntity) {
+        if (null == menuEntity || null == menuEntity.getId()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        return this.menuService.updateById(menuEntity);
+    }
+
+    @Override
     public List<MenuEntity> getMenusTree() {
         List<MenuEntity> menusTree = this.menuDao.getMenusTree();
         return menusTree;
