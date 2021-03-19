@@ -24,16 +24,22 @@ public enum RavenCodeEnum {
 
     REGISTERED_FAIL(false, 30104, "用户已注册"),
 
-
-
-
     // 职位
     POSITION_SAVE_FAIL(false, 40100, "职位保存失败"),
     POSITION_UPDATE_FAIL(false, 40101, "职位更新失败"),
 
-    // 品牌
-    PRODUCT_BRAND_EXIST(false, 40200, "品牌名称已经存在"),
-    PRODUCT_BRAND_SAVE_FAIL(false, 40201, "品牌保存失败"),
+    // 菜单
+    MENU_SAVE_FAIL(false, 50100, "菜单保存失败"),
+    MENU_UPDATE_FAIL(false, 50101, "菜单更新失败"),
+    MENU_DELETE_FAIL(false, 50102, "菜单删除失败"),
+
+    // 角色
+    ROLE_EXIST(false, 60200, "角色名称已经存在"),
+    ROLE_SAVE_FAIL(false, 60201, "角色保存失败"),
+    ROLE_UPDATE_FAIL(false, 60202, "角色更新失败"),
+    ROLE_DELETE_FAIL(false, 60203, "角色更新失败"),
+
+    PRODUCT_BRAND_EXIST(false, 40201, "品牌名称已经存在"),
     PRODUCT_BRAND_UPDATE_FAIL(false, 40202, "品牌更新失败"),
 
     // 仓库
@@ -110,10 +116,6 @@ public enum RavenCodeEnum {
     DEPARTMENT_SAVE_FAIL(false, 60101, "部门保存失败"),
     DEPARTMENT_UPDATE_FAIL(false, 60102, "部门更新失败"),
 
-    // 角色
-    ROLE_EXIST(false, 60200, "角色名称已经存在"),
-    ROLE_SAVE_FAIL(false, 60201, "角色保存失败"),
-    ROLE_UPDATE_FAIL(false, 60202, "角色保存失败"),
     // 员工
     EMPLOYEE_EXIST(false, 60300, "员工已经存在"),
     EMPLOYEE_SAVE_FAIL(false, 60301, "员工保存失败"),
