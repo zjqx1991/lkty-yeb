@@ -4,45 +4,36 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
-import java.util.Date;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-/**
- *
- *
- * @author chenshun
- * @email sunlightcs@gmail.com
- * @date 2021-03-07 22:20:47
- */
+
 @Data
+@ApiModel("部门")
 @TableName("t_department")
 public class DepartmentEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * id
-	 */
+
+	@ApiModelProperty("自增主键id")
 	@TableId
 	private Integer id;
-	/**
-	 * 部门名称
-	 */
+
+	@ApiModelProperty("部门名称")
 	private String name;
-	/**
-	 * 父id
-	 */
+
+	@ApiModelProperty("部门父id")
 	private Integer parentid;
-	/**
-	 * 路径
-	 */
+
+	@ApiModelProperty("路径")
 	private String deppath;
-	/**
-	 * 是否启用
-	 */
+
+	@ApiModelProperty("是否启用")
 	private Integer enabled;
-	/**
-	 * 是否上级
-	 */
+
+	@ApiModelProperty("是否上级")
 	private Integer isparent;
 
 }

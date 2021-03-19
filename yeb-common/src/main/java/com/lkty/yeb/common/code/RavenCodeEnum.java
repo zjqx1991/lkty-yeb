@@ -39,8 +39,24 @@ public enum RavenCodeEnum {
     ROLE_UPDATE_FAIL(false, 60202, "角色更新失败"),
     ROLE_DELETE_FAIL(false, 60203, "角色更新失败"),
 
-    PRODUCT_BRAND_EXIST(false, 40201, "品牌名称已经存在"),
-    PRODUCT_BRAND_UPDATE_FAIL(false, 40202, "品牌更新失败"),
+
+    // 部门
+    DEPARTMENT_EXIST(false, 60100, "部门名称已经存在"),
+    DEPARTMENT_SAVE_FAIL(false, 60101, "部门保存失败"),
+    DEPARTMENT_UPDATE_FAIL(false, 60102, "部门更新失败"),
+    DEPARTMENT_DELETE_FAIL(false, 60103, "部门更新失败"),
+
+    // 员工
+    EMPLOYEE_EXIST(false, 60300, "员工已经存在"),
+    EMPLOYEE_SAVE_FAIL(false, 60301, "员工保存失败"),
+    EMPLOYEE_UPDATE_FAIL(false, 60302, "员工更新失败"),
+    EMPLOYEE_PASSWORD_FAIL(false, 60303, "密码错误"),
+    EMPLOYEE_DELETE_FAIL(false, 60304, "删除员工失败"),
+    EMPLOYEE_COUNT_UP_FAIL(false, 60305, "添加员工已达上线"),
+
+    // 员工
+    PERMISSION_EMPTY(false, 1, "权限为空"),
+
 
     // 仓库
     PRODUCT_STORE_EXIST(false, 40300, "仓库名称已经存在"),
@@ -111,21 +127,6 @@ public enum RavenCodeEnum {
     COMPANY_SAVE_FAIL(false, 50101, "公司保存失败"),
     COMPANY_UPDATE_FAIL(false, 50102, "公司更新失败"),
 
-    // 部门
-    DEPARTMENT_EXIST(false, 60100, "部门名称已经存在"),
-    DEPARTMENT_SAVE_FAIL(false, 60101, "部门保存失败"),
-    DEPARTMENT_UPDATE_FAIL(false, 60102, "部门更新失败"),
-
-    // 员工
-    EMPLOYEE_EXIST(false, 60300, "员工已经存在"),
-    EMPLOYEE_SAVE_FAIL(false, 60301, "员工保存失败"),
-    EMPLOYEE_UPDATE_FAIL(false, 60302, "员工更新失败"),
-    EMPLOYEE_PASSWORD_FAIL(false, 60303, "密码错误"),
-    EMPLOYEE_DELETE_FAIL(false, 60304, "删除员工失败"),
-    EMPLOYEE_COUNT_UP_FAIL(false, 60305, "添加员工已达上线"),
-
-    // 员工
-    PERMISSION_EMPTY(false, 1, "权限为空"),
 
 
     // 支付订单

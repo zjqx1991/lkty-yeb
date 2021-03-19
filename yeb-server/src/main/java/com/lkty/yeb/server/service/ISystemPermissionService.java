@@ -1,5 +1,6 @@
 package com.lkty.yeb.server.service;
 
+import com.lkty.yeb.common.pojo.server.DepartmentEntity;
 import com.lkty.yeb.common.pojo.server.MenuEntity;
 import com.lkty.yeb.common.pojo.server.RoleEntity;
 
@@ -62,5 +63,28 @@ public interface ISystemPermissionService {
      * 获取角色列表
      */
     List<RoleEntity> getRoleList();
+
+
+    //************** 权限 - 部门 - CRUD **************
+
+    /**
+     * 保存部门
+     */
+    DepartmentEntity saveDepartment(DepartmentEntity department);
+
+    /**
+     * 删除部门
+     */
+    Boolean deleteDepartmentBatchByIds(List<Integer> ids);
+
+    /**
+     * 更新部门
+     */
+    DepartmentEntity updateDepartment(DepartmentEntity department);
+
+    /**
+     * 获取部门树
+     */
+    List<DepartmentEntity> getDepartmentTree();
 }
 

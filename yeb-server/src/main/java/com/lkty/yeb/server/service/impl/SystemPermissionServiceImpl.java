@@ -3,9 +3,11 @@ package com.lkty.yeb.server.service.impl;
 
 import com.lkty.yeb.common.code.RavenCodeEnum;
 import com.lkty.yeb.common.handler.RavenException;
+import com.lkty.yeb.common.pojo.server.DepartmentEntity;
 import com.lkty.yeb.common.pojo.server.MenuEntity;
 import com.lkty.yeb.common.pojo.server.RoleEntity;
 import com.lkty.yeb.server.dao.IMenuDao;
+import com.lkty.yeb.server.service.IDepartmentService;
 import com.lkty.yeb.server.service.IMenuService;
 import com.lkty.yeb.server.service.IRoleService;
 import com.lkty.yeb.server.service.ISystemPermissionService;
@@ -23,6 +25,8 @@ public class SystemPermissionServiceImpl implements ISystemPermissionService {
     private IMenuDao menuDao;
     @Autowired
     private IRoleService roleService;
+    @Autowired
+    private IDepartmentService departmentService;
 
 
     //************** 权限 - 菜单 - CRUD **************
@@ -115,5 +119,49 @@ public class SystemPermissionServiceImpl implements ISystemPermissionService {
     @Override
     public List<RoleEntity> getRoleList() {
         return this.roleService.list();
+    }
+
+
+    //************** 权限 - 部门 - CRUD **************
+
+    @Override
+    public DepartmentEntity saveDepartment(DepartmentEntity department) {
+        if (null == department || null != department.getId()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        boolean isSave = this.departmentService.save(department);
+        if (!isSave) {
+            throw new RavenException(RavenCodeEnum.DEPARTMENT_SAVE_FAIL);
+        }
+        return department;
+    }
+
+    @Override
+    public Boolean deleteDepartmentBatchByIds(List<Integer> ids) {
+        if (null == ids || ids.isEmpty()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        boolean isDelete = this.departmentService.removeByIds(ids);
+        if (!isDelete) {
+            throw new RavenException(RavenCodeEnum.DEPARTMENT_DELETE_FAIL);
+        }
+        return isDelete;
+    }
+
+    @Override
+    public DepartmentEntity updateDepartment(DepartmentEntity department) {
+        if (null == department || null == department.getId()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        boolean isUpdate = this.departmentService.updateById(department);
+        if (!isUpdate) {
+            throw new RavenException(RavenCodeEnum.DEPARTMENT_UPDATE_FAIL);
+        }
+        return department;
+    }
+
+    @Override
+    public List<DepartmentEntity> getDepartmentTree() {
+        return null;
     }
 }

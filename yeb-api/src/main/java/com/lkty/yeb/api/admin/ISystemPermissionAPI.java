@@ -1,6 +1,7 @@
 package com.lkty.yeb.api.admin;
 
 
+import com.lkty.yeb.common.pojo.server.DepartmentEntity;
 import com.lkty.yeb.common.pojo.server.MenuEntity;
 import com.lkty.yeb.common.pojo.server.RoleEntity;
 import com.lkty.yeb.common.result.R;
@@ -50,4 +51,24 @@ public interface ISystemPermissionAPI {
     @ApiOperation("获取角色列表")
     @GetMapping("/role")
     R getRoleList();
+
+
+    //************** 权限 - 部门 - CRUD **************
+
+    @ApiOperation("新增部门")
+    @PostMapping("/department/save")
+    R saveDepartment(@RequestBody DepartmentEntity department);
+
+    @ApiOperation("删除部门")
+    @PostMapping("/department/delete")
+    R deleteDepartmentBatchByIds(@RequestBody List<Integer> ids);
+
+
+    @ApiOperation("更新部门")
+    @PostMapping("/department/update/{id}")
+    R updateDepartment(@RequestBody DepartmentEntity department);
+
+    @ApiOperation("获取部门树")
+    @GetMapping("/department")
+    R getDepartmentTree();
 }

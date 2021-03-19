@@ -3,6 +3,7 @@ package com.lkty.yeb.server.controller;
 import com.lkty.yeb.api.admin.ISystemPermissionAPI;
 import com.lkty.yeb.common.code.RavenCodeEnum;
 import com.lkty.yeb.common.handler.RavenException;
+import com.lkty.yeb.common.pojo.server.DepartmentEntity;
 import com.lkty.yeb.common.pojo.server.MenuEntity;
 import com.lkty.yeb.common.pojo.server.RoleEntity;
 import com.lkty.yeb.common.result.R;
@@ -91,5 +92,42 @@ public class SystemPermissionController implements ISystemPermissionAPI {
     public R getRoleList() {
         List<RoleEntity> list = this.permissionService.getRoleList();
         return R.ok().put("data", list);
+    }
+
+
+
+    //************** 权限 - 部门 - CRUD **************
+
+    @Override
+    public R saveDepartment(@RequestBody DepartmentEntity department) {
+        if (null == department || null != department.getId()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        department = this.permissionService.saveDepartment(department);
+        return R.ok().put("data", department);
+    }
+
+    @Override
+    public R deleteDepartmentBatchByIds(@RequestBody List<Integer> ids) {
+        if (null == ids || ids.isEmpty()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        Boolean isDelete = this.permissionService.deleteDepartmentBatchByIds(ids);
+        return R.ok().put("data", isDelete);
+    }
+
+    @Override
+    public R updateDepartment(@RequestBody DepartmentEntity department) {
+        if (null == department || null == department.getId()) {
+            throw new RavenException(RavenCodeEnum.PARAM_FAIL);
+        }
+        department = this.permissionService.updateDepartment(department);
+        return R.ok().put("data", department);
+    }
+
+    @Override
+    public R getDepartmentTree() {
+        List<DepartmentEntity> departmentTree = this.permissionService.getDepartmentTree();
+        return R.ok().put("data", departmentTree);
     }
 }
