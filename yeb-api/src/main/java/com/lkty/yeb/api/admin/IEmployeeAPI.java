@@ -9,7 +9,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 @Api(value = "员工表", description = "员工表管理，提供增、删、改、查")
-@RequestMapping("/employee")
+@RequestMapping("/api/employee")
 public interface IEmployeeAPI {
 
     /**

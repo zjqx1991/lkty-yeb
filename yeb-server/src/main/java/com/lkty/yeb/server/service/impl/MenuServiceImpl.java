@@ -29,4 +29,10 @@ public class MenuServiceImpl extends ServiceImpl<IMenuDao, MenuEntity> implement
         List<MenuEntity> menus = this.menuDao.getMenuWithRoles();
         return menus;
     }
+
+    @Override
+    public List<MenuEntity> getMenusTree() {
+        List<MenuEntity> menusTree = this.menuDao.getMenusTree();
+        return menusTree;
+    }
 }

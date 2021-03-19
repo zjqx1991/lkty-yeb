@@ -15,5 +15,10 @@ public interface IMenuService extends IService<MenuEntity> {
      * 获取 url 包含的 Roles
      */
     List<MenuEntity> getMenuWithRoles();
+
+    /**
+     * 三层菜单列表
+     */
+    List<MenuEntity> getMenusTree();
 }
 

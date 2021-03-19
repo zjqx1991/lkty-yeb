@@ -7,7 +7,6 @@ import com.lkty.yeb.server.service.IMenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.awt.*;
 import java.util.List;
 
 
@@ -18,8 +17,14 @@ public class MenuController implements IMenuAPI {
     private IMenuService menuService;
 
     @Override
-    public R list() {
+    public R getMenusByUid() {
         List<MenuEntity> list = this.menuService.getListByUid();
         return R.ok().put("data", list);
+    }
+
+    @Override
+    public R getMenusTree() {
+        List<MenuEntity> menuTree = this.menuService.getMenusTree();
+        return R.ok().put("data", menuTree);
     }
 }
