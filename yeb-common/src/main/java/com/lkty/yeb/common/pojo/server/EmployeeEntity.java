@@ -5,6 +5,8 @@ import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 /**
@@ -35,6 +37,7 @@ public class EmployeeEntity implements Serializable {
 	/**
 	 * 出生日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date birthday;
 	/**
 	 * 身份证号
@@ -43,7 +46,7 @@ public class EmployeeEntity implements Serializable {
 	/**
 	 * 婚姻状况
 	 */
-	private Enum wedlock;
+	private String wedlock;
 	/**
 	 * 民族
 	 */
@@ -87,7 +90,7 @@ public class EmployeeEntity implements Serializable {
 	/**
 	 * 最高学历
 	 */
-	private Enum tiptopdegree;
+	private String tiptopdegree;
 	/**
 	 * 所属专业
 	 */
@@ -99,11 +102,12 @@ public class EmployeeEntity implements Serializable {
 	/**
 	 * 入职日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date begindate;
 	/**
 	 * 在职状态
 	 */
-	private Enum workstate;
+	private String workstate;
 	/**
 	 * 工号
 	 */
@@ -115,18 +119,22 @@ public class EmployeeEntity implements Serializable {
 	/**
 	 * 转正日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date conversiontime;
 	/**
 	 * 离职日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date notworkdate;
 	/**
 	 * 合同起始日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date begincontract;
 	/**
 	 * 合同终止日期
 	 */
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date endcontract;
 	/**
 	 * 工龄
